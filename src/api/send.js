@@ -19,8 +19,8 @@ router.post('/', (req, res) => {
       Messages: [
         {
           From: {
-            Email: 'justinanthony.primary@gmail.com',
-            Name: 'Justin'
+            Email: 'hello@justinbalaguer.dev',
+            Name: 'Justin Dev'
           },
           To: [
             {
