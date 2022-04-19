@@ -2,7 +2,7 @@ const rateLimit = require('express-rate-limit');
 
 const apiLimit = rateLimit({
   windowMs: 24 * 60 * 60 * 1000,
-  max: 20,
+  max: 3,
   message: 'Uh oh! Spam detected. You can send us email directly at support@sparkpoint.io',
   headers: true
 });
