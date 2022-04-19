@@ -1,4 +1,5 @@
 const express = require('express');
+const limiter = require('../utils/rateLimit');
 
 const send = require('./send');
 const job = require('./jobs/cmc');
@@ -12,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/send', send);
+router.use('/send', limiter, send);
 router.use('/jobs', job);
 router.use('/rss', rss);
 

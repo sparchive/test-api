@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
-const limiter = require('./utils/rateLimit');
 
 require('dotenv').config();
 
@@ -22,7 +21,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/api/v1', limiter, api);
+app.use('/api/v1', api);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
