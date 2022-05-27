@@ -6,11 +6,13 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
   const {
+    email,
     firstName,
     lastName,
-    email,
+    country,
+    state,
+    phone,
     company,
-    subject,
     message
   } = req.body;
 
@@ -29,13 +31,22 @@ router.post('/', (req, res) => {
               Name: 'SparkPoint Business Test'
             }
           ],
-          Subject: subject,
+          Subject: company,
           HTMLPart: `
             <p>
               <b>Name:</b> ${lastName}, ${firstName}
             </p>
             <p>
               <b>Email:</b> ${email}
+            </p>
+            <p>
+              <b>Country:</b> ${country}
+            </p>
+            <p>
+              <b>State:</b> ${state}
+            </p>
+            <p>
+              <b>Phone:</b> ${phone}
             </p>
             <p>
               <b>Company:</b> ${company}
