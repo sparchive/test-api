@@ -22,13 +22,13 @@ router.post('/', (req, res) => {
       Messages: [
         {
           From: {
-            Email: 'hello@justinbalaguer.dev',
-            Name: 'Justin Dev'
+            Email: 'support@sparkpoint.io',
+            Name: 'SparkPoint Support'
           },
           To: [
             {
-              Email: 'business@sparkpoint.io',
-              Name: 'SparkPoint Business Test'
+              Email: 'justinanthony.primary@gmail.com',
+              Name: 'SparkPoint Business'
             }
           ],
           Subject: company,
