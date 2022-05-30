@@ -24,7 +24,7 @@ router.post('/', (req, res) => {
           },
           To: [
             {
-              Email: 'support@sparkpoint.io',
+              Email: 'justinathony.primary@gmail.com',
               Name: 'SparkPoint Support'
             }
           ],
