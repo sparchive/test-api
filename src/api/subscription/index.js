@@ -3,13 +3,13 @@ const express = require('express');
 
 const router = express.Router();
 const mailjet = require('node-mailjet')
-  .connect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
+  .connect(process.env.MJS_APIKEY_PUBLIC, process.env.MJS_APIKEY_PRIVATE);
 
 router.post('/', async (req, res) => {
   const { Name, Email } = req.body;
   const request = mailjet
-    .post('contactslist', { version: 'v3' })
-    .id('10280140')
+    .post('contactslist')
+    .id('22083')
     .action('managecontact')
     .request({
       Name,
