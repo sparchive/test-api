@@ -1,5 +1,5 @@
 const express = require('express');
-const limiter = require('../utils/rateLimit');
+// const limiter = require('../utils/rateLimit');
 
 const send = require('./send');
 const business = require('./business');
@@ -15,8 +15,10 @@ router.get('/', (req, res) => {
   });
 });
 
-router.use('/send', limiter, send);
-router.use('/business', limiter, business);
+router.use('/send', send);
+router.use('/business', business);
+// router.use('/send', limiter, send);
+// router.use('/business', limiter, business);
 router.use('/jobs', job);
 router.use('/rss', rss);
 router.use('/subscription', subscription);
