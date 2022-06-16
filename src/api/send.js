@@ -10,7 +10,8 @@ router.post('/', (req, res) => {
     email,
     company,
     subject,
-    message
+    message,
+    receiver = 'support@sparkpoint.io'
   } = req.body;
 
   const request = mailjet
@@ -24,7 +25,7 @@ router.post('/', (req, res) => {
           },
           To: [
             {
-              Email: 'support@sparkpoint.io',
+              Email: receiver,
               Name: 'SparkPoint Support'
             }
           ],
