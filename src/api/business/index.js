@@ -7,13 +7,11 @@ const router = express.Router();
 router.post('/', (req, res) => {
   const {
     email,
-    firstName,
-    lastName,
-    country,
-    state,
+    fullname,
     phone,
     company,
-    message
+    message,
+    businessAddress
   } = req.body;
 
   const request = mailjet
@@ -34,16 +32,10 @@ router.post('/', (req, res) => {
           Subject: company,
           HTMLPart: `
             <p>
-              <b>Name:</b> ${lastName}, ${firstName}
+              <b>Name:</b> ${fullname}
             </p>
             <p>
               <b>Email:</b> ${email}
-            </p>
-            <p>
-              <b>Country:</b> ${country}
-            </p>
-            <p>
-              <b>State:</b> ${state}
             </p>
             <p>
               <b>Phone:</b> ${phone}
@@ -53,6 +45,9 @@ router.post('/', (req, res) => {
             </p>
             <p>
               <b>Message:</b> ${message}
+            </p>
+            <p>
+              <b>Business Address:</b> ${businessAddress}
             </p>
           `,
           CustomID: company
