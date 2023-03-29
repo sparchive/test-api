@@ -11,7 +11,8 @@ router.post('/', (req, res) => {
     phone,
     company,
     message,
-    businessAddress
+    businessAddress,
+    attachment
   } = req.body;
 
   const request = mailjet
@@ -25,7 +26,8 @@ router.post('/', (req, res) => {
           },
           To: [
             {
-              Email: 'business@sparkpoint.io',
+              //Email: 'business@sparkpoint.io',
+              Email: 'justinanthony.primary@gmail.com',
               Name: 'SparkPoint Business'
             }
           ],
@@ -50,7 +52,8 @@ router.post('/', (req, res) => {
               <b>Business Address:</b> ${businessAddress}
             </p>
           `,
-          CustomID: company
+          CustomID: company,
+          Attachments: [attachment]
         }
       ]
     });
