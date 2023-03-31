@@ -6,13 +6,14 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
   const {
-    email,
-    fullname,
+    firstName,
+    lastName,
+    country,
+    region,
     phone,
+    email,
     company,
-    message,
-    businessAddress,
-    attachment
+    message
   } = req.body;
 
   const request = mailjet
@@ -26,21 +27,27 @@ router.post('/', (req, res) => {
           },
           To: [
             {
-              Email: 'business@sparkpoint.io',
-              // dev Email: 'justinanthony.primary@gmail.com',
-              Name: 'SparkPoint Business'
+              Email: 'hello@sparktech.dev',
+              //Email: 'justinanthony.primary@gmail.com',
+              Name: 'SparkTech Business'
             }
           ],
           Subject: company,
           HTMLPart: `
             <p>
-              <b>Name:</b> ${fullname}
+              <b>Name:</b> ${lastName}, ${firstName}
             </p>
             <p>
-              <b>Email:</b> ${email}
+              <b>Country:</b> ${country}
+            </p>
+            <p>
+              <b>Region:</b> ${region}
             </p>
             <p>
               <b>Phone:</b> ${phone}
+            </p>
+            <p>
+              <b>Email:</b> ${email}
             </p>
             <p>
               <b>Company:</b> ${company}
@@ -48,12 +55,8 @@ router.post('/', (req, res) => {
             <p>
               <b>Message:</b> ${message}
             </p>
-            <p>
-              <b>Business Address:</b> ${businessAddress}
-            </p>
           `,
           CustomID: company,
-          Attachments: [attachment]
         }
       ]
     });

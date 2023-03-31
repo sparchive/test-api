@@ -3,13 +3,14 @@ const express = require('express');
 
 const send = require('./send');
 const business = require('./business');
+const sparktech = require('./sparktech');
 const job = require('./jobs/cmc');
 const rss = require('./rss');
 const subscription = require('./subscription');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', (_, res) => {
   res.json({
     message: 'API - 👋🌎🌍🌏'
   });
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
 
 router.use('/send', send);
 router.use('/business', business);
+router.use('/sparktech/contact', sparktech);
 // router.use('/send', limiter, send);
 // router.use('/business', limiter, business);
 router.use('/jobs', job);
